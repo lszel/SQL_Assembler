@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="boxBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+
+    <linearGradient id="headerGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+
+    <linearGradient id="headerGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+
+    <linearGradient id="headerGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+
+    <filter id="softGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#64748b"/>
+    </marker>
+
+    <marker id="arrowCyan" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8"/>
+    </marker>
+
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="860" height="400" rx="14" fill="#0b0f19" stroke="#1e293b" stroke-width="1.5"/>
+
+  <!-- Column 1: Adatmodell / Relational Model -->
+  <g transform="translate(30, 30)">
+    <rect width="230" height="340" rx="10" fill="url(#boxBg)" stroke="#334155" stroke-width="1.2" filter="url(#softGlow)"/>
+    <rect width="230" height="36" rx="10" fill="#1e293b"/>
+    <rect y="26" width="230" height="10" fill="#1e293b"/>
+    <text x="115" y="23" font-family="-apple-system, sans-serif" font-size="13" font-weight="700" fill="#38bdf8" text-anchor="middle" letter-spacing="0.5">
+      1. ADATMODELL / TABLES
+    </text>
+
+    <!-- Item 1: asm_program_lines -->
+    <g transform="translate(15, 52)">
+      <rect width="200" height="52" rx="6" fill="#090d16" stroke="#0284c7" stroke-width="1.2"/>
+      <text x="12" y="22" font-family="'Consolas', monospace" font-size="12" font-weight="700" fill="#f1f5f9">asm_program_lines</text>
+      <text x="12" y="38" font-family="-apple-system, sans-serif" font-size="10" fill="#94a3b8">Forráskód soronként (line, code)</text>
+    </g>
+
+    <!-- Item 2: asm_runtimes -->
+    <g transform="translate(15, 116)">
+      <rect width="200" height="52" rx="6" fill="#090d16" stroke="#334155" stroke-width="1"/>
+      <text x="12" y="22" font-family="'Consolas', monospace" font-size="12" font-weight="700" fill="#f1f5f9">asm_runtimes</text>
+      <text x="12" y="38" font-family="-apple-system, sans-serif" font-size="10" fill="#94a3b8">Linux ELF32 fejléc / lábléc sablon</text>
+    </g>
+
+    <!-- Item 3: x86_instructions -->
+    <g transform="translate(15, 180)">
+      <rect width="200" height="52" rx="6" fill="#090d16" stroke="#334155" stroke-width="1"/>
+      <text x="12" y="22" font-family="'Consolas', monospace" font-size="12" font-weight="700" fill="#f1f5f9">x86_instructions</text>
+      <text x="12" y="38" font-family="-apple-system, sans-serif" font-size="10" fill="#94a3b8">Opcode-ok, formátumok (mov, add..)</text>
+    </g>
+
+    <!-- Item 4: x86_registers -->
+    <g transform="translate(15, 244)">
+      <rect width="200" height="52" rx="6" fill="#090d16" stroke="#334155" stroke-width="1"/>
+      <text x="12" y="22" font-family="'Consolas', monospace" font-size="12" font-weight="700" fill="#f1f5f9">x86_registers</text>
+      <text x="12" y="38" font-family="-apple-system, sans-serif" font-size="10" fill="#94a3b8">Regiszterkódok (eax, ebx, ecx..)</text>
+    </g>
+  </g>
+
+  <!-- Connectors Col 1 -> Col 2 -->
+  <path d="M 260 110 L 310 110" stroke="#38bdf8" stroke-width="1.8" fill="none" marker-end="url(#arrowCyan)"/>
+  <path d="M 260 235 L 285 235 L 285 190 L 310 190" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Column 2: PL/pgSQL Fordító Pipeline -->
+  <g transform="translate(315, 30)">
+    <rect width="260" height="340" rx="10" fill="url(#boxBg)" stroke="#4f46e5" stroke-width="1.2" filter="url(#softGlow)"/>
+    <rect width="260" height="36" rx="10" fill="#1e1b4b"/>
+    <rect y="26" width="260" height="10" fill="#1e1b4b"/>
+    <text x="130" y="23" font-family="-apple-system, sans-serif" font-size="13" font-weight="700" fill="#a5b4fc" text-anchor="middle" letter-spacing="0.5">
+      2. PL/pgSQL COMPILER PIPELINE
+    </text>
+
+    <!-- Step 1: compile_stored_program -->
+    <g transform="translate(15, 50)">
+      <rect width="230" height="46" rx="6" fill="#090d16" stroke="#6366f1" stroke-width="1"/>
+      <text x="12" y="20" font-family="'Consolas', monospace" font-size="12" font-weight="700" fill="#c7d2fe">compile_stored_program</text>
+      <text x="12" y="35" font-family="-apple-system, sans-serif" font-size="10" fill="#94a3b8">Sorok összefűzése a futtatóval</text>
+    </g>
+
+    <!-- Connector down -->
+    <path d="M 130 96 L 130 114" stroke="#818cf8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+    <!-- Step 2: compile_x86 (Pass 1 & 2) -->
+    <g transform="translate(15, 118)">
+      <rect width="230" height="66" rx="6" fill="#090d16" stroke="#4338ca" stroke-width="1"/>
+      <text x="12" y="20" font-family="'Consolas', monospace" font-size="12" font-weight="700" fill="#c7d2fe">compile_x86 (2-Pass Engine)</text>
+      <text x="12" y="36" font-family="-apple-system, sans-serif" font-size="10" fill="#cbd5e1">1. menet: címkék &amp; ugrási távolságok</text>
+      <text x="12" y="52" font-family="-apple-system, sans-serif" font-size="10" fill="#cbd5e1">2. menet: ModR/M &amp; gépikód generálás</text>
+    </g>
+
+    <!-- Connector down -->
+    <path d="M 130 184 L 130 202" stroke="#818cf8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+    <!-- Step 3: wrap_in_elf32 -->
+    <g transform="translate(15, 206)">
+      <rect width="230" height="46" rx="6" fill="#090d16" stroke="#4338ca" stroke-width="1"/>
+      <text x="12" y="20" font-family="'Consolas', monospace" font-size="12" font-weight="700" fill="#c7d2fe">wrap_in_elf32</text>
+      <text x="12" y="35" font-family="-apple-system, sans-serif" font-size="10" fill="#94a3b8">Szabványos 84B Linux ELF32 fejléc</text>
+    </g>
+
+    <!-- Connector down -->
+    <path d="M 130 252 L 130 270" stroke="#818cf8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+    <!-- Step 4: export_binary -->
+    <g transform="translate(15, 274)">
+      <rect width="230" height="46" rx="6" fill="#090d16" stroke="#4338ca" stroke-width="1"/>
+      <text x="12" y="20" font-family="'Consolas', monospace" font-size="12" font-weight="700" fill="#c7d2fe">export_binary (PL/Python3u)</text>
+      <text x="12" y="35" font-family="-apple-system, sans-serif" font-size="10" fill="#94a3b8">Kiírás lemezre chmod 0755 joggal</text>
+    </g>
+  </g>
+
+  <!-- Connectors Col 2 -> Col 3 -->
+  <path d="M 575 297 L 625 297 L 625 200 L 645 200" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowGreen)"/>
+
+  <!-- Column 3: Kimenet / Output -->
+  <g transform="translate(650, 30)">
+    <rect width="180" height="340" rx="10" fill="url(#boxBg)" stroke="#059669" stroke-width="1.2" filter="url(#softGlow)"/>
+    <rect width="180" height="36" rx="10" fill="#064e3b"/>
+    <rect y="26" width="180" height="10" fill="#064e3b"/>
+    <text x="90" y="23" font-family="-apple-system, sans-serif" font-size="13" font-weight="700" fill="#34d399" text-anchor="middle" letter-spacing="0.5">
+      3. OUTPUT
+    </text>
+
+    <!-- Output Box -->
+    <g transform="translate(15, 75)">
+      <rect width="150" height="190" rx="8" fill="#090d16" stroke="#10b981" stroke-width="1.5"/>
+      <circle cx="75" cy="40" r="22" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
+      <path d="M 68 40 L 73 45 L 83 35" stroke="#34d399" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <text x="75" y="80" font-family="'Consolas', monospace" font-size="12" font-weight="700" fill="#f1f5f9" text-anchor="middle">Linux ELF32</text>
+      <text x="75" y="98" font-family="-apple-system, sans-serif" font-size="10" fill="#10b981" text-anchor="middle" font-weight="600">Önálló futtatható</text>
+
+      <path d="M 25 115 L 125 115" stroke="#1e293b" stroke-width="1"/>
+
+      <text x="75" y="135" font-family="'Consolas', monospace" font-size="10" fill="#94a3b8" text-anchor="middle">/home/asmtest/</text>
+      <text x="75" y="152" font-family="'Consolas', monospace" font-size="11" font-weight="700" fill="#38bdf8" text-anchor="middle">program</text>
+
+      <rect x="25" y="165" width="100" height="18" rx="4" fill="#1e293b"/>
+      <text x="75" y="177" font-family="'Consolas', monospace" font-size="9" fill="#a7f3d0" text-anchor="middle">chmod 0755</text>
+    </g>
+  </g>
+</svg>

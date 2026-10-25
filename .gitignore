@@ -1,0 +1,12 @@
+# Editor settings
+.vscode/
+
+# Scratchpads and sessions
+*.session.sql
+*.tmp
+*.log
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
