@@ -116,14 +116,6 @@ Binary packaging is handled by the wrap_in_elf32 routine, which constructs a com
 
 ---
 
-### Architecture
-
-<p align="center">
-  <img src="assets/architecture.svg" alt="SQLAssembler Architecture" width="100%">
-</p>
-
----
-
 ### Project Layout
 
 ```text
