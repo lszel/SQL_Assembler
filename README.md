@@ -34,8 +34,6 @@ A mikroarchitektúra definíciója teljesen táblavezérelt: az opcode értékek
 
 A gépikód csomagolását a wrap_in_elf32 függvény végzi, amely a memóriában állít össze egy szabványos 84 bájtos Linux ELF32 fejlécet. Az így kiexportált állomány közvetlenül futtatható a Linux kernel alatt, külső futtató vagy C környezet nélkül.
 
-A lefordított binárisok működése közvetlenül SQL munkamenetből is ellenőrizhető a run_binary függvény segítségével.
-
 ---
 
 ### Architektúra
@@ -43,6 +41,19 @@ A lefordított binárisok működése közvetlenül SQL munkamenetből is ellen�
 <p align="center">
   <img src="assets/architecture.svg" alt="SQLAssembler Architecture" width="100%">
 </p>
+
+---
+
+### Projektstruktúra
+
+```text
+sqlasm/
+├── sql/
+│   ├── tables/       # Regiszterek, utasítások, programok, futtatók táblái
+│   ├── functions/    # 2-menetes fordító, ELF32 csomagoló, exportáló
+│   └── procedures/   # compile_stored_program eljárás
+└── README.md
+```
 
 ---
 
@@ -105,6 +116,14 @@ Binary packaging is handled by the wrap_in_elf32 routine, which constructs a com
 
 ---
 
+### Architecture
+
+<p align="center">
+  <img src="assets/architecture.svg" alt="SQLAssembler Architecture" width="100%">
+</p>
+
+---
+
 ### Project Layout
 
 ```text
@@ -114,6 +133,44 @@ sqlasm/
 │   ├── functions/    # 2-pass compiler, ELF32 packager, exporter
 │   └── procedures/   # compile_stored_program
 └── README.md
+```
+
+---
+
+### Usage
+
+#### 1. Store program in database
+
+```sql
+INSERT INTO asm_programs (name, description) 
+VALUES ('demo', 'Multiply with loop');
+
+INSERT INTO asm_program_lines (program_name, line_number, line_code) VALUES
+('demo', 10, 'xor eax, eax'),
+('demo', 20, 'mov ebx, 5'),
+('demo', 30, 'mov ecx, 4'),
+('demo', 40, 'loop:'),
+('demo', 50, 'add eax, ebx'),
+('demo', 60, 'dec ecx'),
+('demo', 70, 'jnz loop'),
+('demo', 80, 'ret');
+```
+
+#### 2. Compile and export
+
+```sql
+CALL compile_stored_program('demo');
+```
+
+The procedure reads and sorts lines from the table, performs two-pass assembly, attaches the Linux sys_exit runtime shim and ELF header, and exports the binary to /home/asmtest/demo with executable permissions.
+
+#### 3. Execution
+
+Direct execution in Linux terminal:
+
+```bash
+/home/asmtest/demo
+echo $?
 ```
 
 
